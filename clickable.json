@@ -1,12 +1,5 @@
 {
-  "build_dir": "click_build",
-  "arch": "armhf",
-  "scripts":
-  {
-   "clean_tmp": "rm -rf ./tmp/*"
-  },
-  "template": "custom",
-  "build": "bash -c 'cd ..; ./clickableCustomBuild.sh click_build/tmp'",
-  "dependencies_target": [ "libcurl4-gnutls-dev" ],
-  "default" : "clean clean_tmp build click-build install launch"
+  "build_args": "CONFIG+=ubuntu",
+  "builder": "qmake",
+  "dependencies_target": [ "libcurl4-gnutls-dev" ]
 }
