@@ -20,6 +20,7 @@
 import Fahrplan 1.0
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import Ubuntu.Content 1.3
 
 Page {
     id: searchResultsPage
@@ -39,6 +40,8 @@ Page {
     property string journeyStationsTitleText
     property string journeryDateTitleText
     property alias searchIndicatorVisible: searchIndicator.visible
+    readonly property bool isDarkTheme: theme.palette.normal.background.hslLightness < 0.5
+    readonly property string offsetBackgroundColor: isDarkTheme ? Qt.lighter(theme.palette.normal.background, 2.5) : Qt.darker(theme.palette.normal.background, 1.1)
 
     ActivityIndicator {
         id: searchIndicator
@@ -87,7 +90,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: headerLabel.implicitHeight + units.gu (3)
-                color: mouseArea.pressed ? "DarkGrey" : "#F5F5F5"
+                color: mouseArea.pressed ? "DarkGrey" : offsetBackgroundColor
                 Label {
                     id: headerLabel
                     width: parent.width
@@ -110,7 +113,7 @@ Page {
         footer: Rectangle {
             width: parent.width
             height: footerLabel.implicitHeight + units.gu (3)
-            color: footerMouseArea.pressed ? "DarkGrey" : "#F5F5F5"
+            color: footerMouseArea.pressed ? "DarkGrey" : offsetBackgroundColor
             Label {
                 id: footerLabel
                 width: parent.width
@@ -142,7 +145,7 @@ Page {
 
             height: detailsLayout.height + lbl_miscInfo.height - units.gu(1)
             divider.visible: false
-            color: itemNum % 2 ? "#F5F5F5" : "#ECECEC"
+            color: itemNum % 2 ? offsetBackgroundColor : theme.palette.normal.background
             highlightColor: "DarkGrey"
 
             ListItemLayout {

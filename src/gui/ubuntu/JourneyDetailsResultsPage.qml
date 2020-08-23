@@ -36,6 +36,7 @@ Page {
     property alias searchIndicatorVisible: searchIndicator.visible
 
     property JourneyDetailResultList currentResult;
+    readonly property bool isDarkTheme: theme.palette.normal.background.hslLightness < 0.5
 
     ActivityIndicator {
         id: searchIndicator
@@ -131,7 +132,7 @@ Page {
                      Rectangle {
                          id: stationBackground
                          anchors.fill: parent
-                         color: "#F5F5F5"
+                         color: isDarkTheme ? Qt.lighter(theme.palette.normal.background, 2.5) : Qt.darker(theme.palette.normal.background, 1.1)
                      }
 
                      Rectangle {
@@ -180,15 +181,15 @@ Page {
                              }
                              GradientStop {
                                  position: 0.39;
-                                 color: "White"
+                                 color: stationBackground.color
                              }
                              GradientStop {
                                  position: 0.50;
-                                 color: "White"
+                                 color: stationBackground.color
                              }
                              GradientStop {
                                  position: 0.61;
-                                 color: "White"
+                                 color: stationBackground.color
                              }
                              GradientStop {
                                  position: 0.62;
@@ -271,7 +272,7 @@ Page {
                     Rectangle {
                         id: trainBackground
                         anchors.fill: parent
-                        color: "#ECECEC"
+                        color: theme.palette.normal.background
                     }
 
                     Rectangle {
