@@ -181,6 +181,9 @@ void FahrplanParserThread::run()
         case 17:
             m_parser = new ParserXmlRMVde();
             break;
+        case 18:
+            m_parser = new ParserRailteam();
+            break;
     }
 
     m_name = m_parser->name();
