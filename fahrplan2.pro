@@ -131,6 +131,7 @@ HEADERS += \
     src/parser/parser_finland_matka.h \
     src/parser/parser_london_tfl.h \
     src/parser/parser_xmlrmvde.h \
+    src/parser/parser_railteam.h \
     src/models/backends.h
 
 SOURCES += src/main.cpp \
@@ -167,6 +168,7 @@ SOURCES += src/main.cpp \
     src/parser/parser_finland_matka.cpp \
     src/parser/parser_london_tfl.cpp \
     src/parser/parser_xmlrmvde.cpp \
+    src/parser/parser_railteam.cpp \
     src/models/backends.cpp
 
 LIBS += $$PWD/3rdparty/gauss-kruger-cpp/gausskruger.cpp
